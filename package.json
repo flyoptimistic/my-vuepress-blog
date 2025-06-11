@@ -1,0 +1,31 @@
+{
+  "name": "vue-blog",
+  "version": "1.0.0",
+  "description": "Vuepress 2搭建的个人博客",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:dev-port": "vuepress dev docs --port 9090"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flyoptimistic/my-vuepress-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flyoptimistic/my-vuepress-blog/issues"
+  },
+  "homepage": "https://github.com/flyoptimistic/my-vuepress-blog#readme",
+  "devDependencies": {
+    "@vuepress/bundler-webpack": "^2.0.0-rc.23",
+    "@vuepress/plugin-search": "^2.0.0-rc.108",
+    "@vuepress/theme-default": "^2.0.0-rc.108",
+    "sass": "^1.89.2",
+    "sass-loader": "^16.0.5",
+    "vue": "^3.5.16",
+    "vuepress": "^2.0.0-rc.23"
+  }
+}

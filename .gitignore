@@ -1,0 +1,134 @@
+######################
+#  Project
+#####################
+/node_modules/
+/themes/
+
+**/target/**
+application-dev.properties
+application-prep-local.properties
+
+**/test/**
+######################
+# Eclipse
+######################
+*.pydevproject
+.project
+.metadata
+tmp/
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.factorypath
+/src/main/resources/rebel.xml
+
+# External tool builders
+.externalToolBuilders/**
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+######################
+# Intellij
+######################
+.idea/
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+classes/
+out/
+
+
+######################
+# Visual Studio Code
+######################
+.vscode/
+
+######################
+# Maven
+######################
+/log/
+/target/
+
+######################
+# Gradle
+######################
+.gradle/
+/build/
+
+######################
+# Package Files
+######################
+
+*.war
+*.ear
+*.db
+
+######################
+# Windows
+######################
+# Windows image file caches
+Thumbs.db
+
+######################
+# Mac OSX
+######################
+.DS_Store
+.svn
+
+# Thumbnails
+._*
+
+
+######################
+# Others
+######################
+*.class
+*.*~
+*~
+.merge_file*
+
+
+######################
+# 自定义
+######################
+*.log
+docker/**
+/db.json
+
+# Node.js 依赖包
+# node_modules 文件夹包含了所有通过 npm 安装的依赖，体积巨大且可以被重新安装。
+node_modules/
+
+# VuePress 2 编译输出和临时文件
+# 这些文件是运行 npm run docs:dev 或 npm run docs:build 时自动生成的。
+docs/.vuepress/dist
+docs/.vuepress/.temp
+docs/.vuepress/.cache
+
+# 常见的日志文件
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# 本地环境变量文件
+# .env 文件通常包含密码、API 密钥等敏感信息，绝对不能提交。
+.env
+.env.local
+.env.*.local
