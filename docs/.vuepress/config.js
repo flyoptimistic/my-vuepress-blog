@@ -29,6 +29,11 @@ export default defineUserConfig({
         logo: 'https://vuejs.org/images/logo.png', // 可以换成你自己的 Logo
         navbar: [
             { text: '首页', link: '/' },
+            { text: '前端', link: '/posts/front/' },
+            { text: '后端', link: '/posts/back/' },
+            { text: '算法', link: '/posts/algorithm/' },
+            { text: '数据库', link: '/posts/database/' },
+            { text: '其他', link: '/posts/other/' },
             { text: 'GitHub', link: 'https://github.com/flyoptimistic/my-vuepress-blog', target:'_blank' },
         ],
     }),
