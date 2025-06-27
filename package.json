@@ -21,6 +21,8 @@
   "homepage": "https://github.com/flyoptimistic/my-vuepress-blog#readme",
   "devDependencies": {
     "@vuepress/bundler-webpack": "^2.0.0-rc.23",
+    "@vuepress/plugin-back-to-top": "^2.0.0-rc.108",
+    "@vuepress/plugin-nprogress": "^2.0.0-rc.108",
     "@vuepress/plugin-search": "^2.0.0-rc.108",
     "@vuepress/theme-default": "^2.0.0-rc.108",
     "sass": "^1.89.2",
