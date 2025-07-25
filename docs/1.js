@@ -2,7 +2,6 @@ import { defineUserConfig } from 'vuepress'
 import { viteBundler } from '@vuepress/bundler-vite'
 import { hopeTheme } from 'vuepress-theme-hope'
 
-
 export default defineUserConfig({
     // 1. 基础配置
     bundler: viteBundler(),
@@ -67,7 +66,6 @@ export default defineUserConfig({
         plugins: {
             // 开启博客功能
             blog: true,
-            searchPro: true,
 
             // 开启评论功能 (这里使用 Giscus)
             comment: {
@@ -83,7 +81,7 @@ export default defineUserConfig({
                 tabs: true,
                 codetabs: true,
                 tasklist: true,
-                hint: true, // 启用自定义容器 ::: tip
+                container: true, // 启用自定义容器 ::: tip
             },
 
             // 代码复制功能 (默认开启，这是它的配置)

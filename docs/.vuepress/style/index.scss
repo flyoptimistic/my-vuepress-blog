@@ -1,0 +1,9 @@
+// docs/.vuepress/styles/index.scss
+
+// 为整个网站的主体内容设置字体
+// 这个选择器会覆盖主题的默认字体设置
+body {
+  // 定义一个“字体栈”，浏览器会从左到右依次尝试使用这些字体
+  // 推荐将英文字体放在前面，中文字体放在后面
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑";
+}
