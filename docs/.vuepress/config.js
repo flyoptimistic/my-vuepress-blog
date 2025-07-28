@@ -30,7 +30,6 @@ export default defineUserConfig({
         repo: 'flyoptimistic/my-vuepress-blog', // 你的仓库地址
 
         // --- 导航栏 (Navbar) ---
-        // 好消息是，你之前的 navbar 配置与新主题完全兼容！
         navbar: [
             { text: '首页', link: '/' },
             {
@@ -56,12 +55,7 @@ export default defineUserConfig({
         ],
 
         // --- 侧边栏 (Sidebar) ---
-        // 你的 sidebar 配置也与新主题完全兼容！
-        sidebar: {
-            '/posts/java/base/': [{ text: 'Java 基础', children: ['/posts/java/base/README.md'] }],
-            '/posts/java/ai/': [{ text: 'Java AI', children: ['/posts/java/ai/README.md'] }],
-            // ... 你其他的 sidebar 配置可以继续放在这里
-        },
+        sidebar: 'structure',
 
         // --- 强大的主题内置插件 ---
         plugins: {
@@ -83,7 +77,7 @@ export default defineUserConfig({
                 tabs: true,
                 codetabs: true,
                 tasklist: true,
-                hint: true, // 启用自定义容器 ::: tip
+                hint: true,
             },
 
             // 代码复制功能 (默认开启，这是它的配置)
@@ -94,7 +88,4 @@ export default defineUserConfig({
             // seo: true,
         },
     }),
-
-    // 我们不再需要顶层的 plugins 数组，因为功能都由主题管理
-    // plugins: [],
 })
