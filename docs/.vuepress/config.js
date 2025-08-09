@@ -21,7 +21,7 @@ export default defineUserConfig({
     // 3. 配置 vuepress-theme-hope 主题
     theme: hopeTheme({
         // --- 基础信息 ---
-        hostname: 'https://你的域名.com', // ❗ 必须！填写你未来部署的域名
+        hostname: 'https://flyoptimistic.github.io/my-vuepress-blog/',
         author: {
             name: '北木南',
             url: 'https://github.com/flyoptimistic', // 你的个人链接
@@ -56,11 +56,19 @@ export default defineUserConfig({
         ],
 
         // --- 侧边栏 (Sidebar) ---
-        // 你的 sidebar 配置也与新主题完全兼容！
         sidebar: {
             '/posts/java/base/': [{ text: 'Java 基础', children: ['/posts/java/base/README.md'] }],
             '/posts/java/ai/': [{ text: 'Java AI', children: ['/posts/java/ai/README.md'] }],
-            // ... 你其他的 sidebar 配置可以继续放在这里
+            '/posts/java/jvm/': [{ text: 'JVM 深入', children: ['/posts/java/jvm/README.md'] }],
+            '/posts/java/concurrent/': [{ text: '高并发编程', children: ['/posts/java/concurrent/README.md'] }],
+            '/posts/java/spring/': [{ text: 'Spring 生态', children: ['/posts/java/spring/README.md'] }],
+            '/posts/front/': [{ text: '前端技术', children: ['/posts/front/README.md'] }],
+            '/posts/algorithm/': [{ text: '算法与数据结构', children: ['/posts/algorithm/README.md'] }],
+            '/posts/database/base/': [{ text: '数据库基础', children: ['/posts/database/base/README.md'] }],
+            '/posts/database/mysql/': [{ text: 'MySQL 专项', children: ['/posts/database/mysql/README.md'] }],
+            '/posts/development/': [{ text: '开发记录', children: ['/posts/development/README.md'] }],
+            '/posts/back/': [{ text: '后端技术', children: ['/posts/back/README.md'] }],
+            '/posts/other/': [{ text: '其他技术', children: ['/posts/other/README.md'] }],
         },
 
         // --- 强大的主题内置插件 ---
@@ -69,14 +77,14 @@ export default defineUserConfig({
             blog: true,
             searchPro: true,
 
-            // 开启评论功能 (这里使用 Giscus)
-            comment: {
-                provider: 'Giscus',
-                repo: 'flyoptimistic/my-vuepress-blog', // 替换为你的 "用户名/仓库名"
-                repoId: 'YOUR_REPO_ID',                 // ❗ 需要替换为你的 Repo ID
-                category: 'Announcements',             // 替换为你的 Discussion 分类名
-                categoryId: 'YOUR_CATEGORY_ID',        // ❗ 需要替换为你的 Category ID
-            },
+            // 评论功能 (需要配置 GitHub Discussions)
+            // comment: {
+            //     provider: 'Giscus',
+            //     repo: 'flyoptimistic/my-vuepress-blog',
+            //     repoId: '', // 需要从 Giscus 获取
+            //     category: 'General',
+            //     categoryId: '', // 需要从 Giscus 获取
+            // },
 
             // Markdown 增强
             mdEnhance: {
@@ -84,14 +92,54 @@ export default defineUserConfig({
                 codetabs: true,
                 tasklist: true,
                 hint: true, // 启用自定义容器 ::: tip
+                footnote: true,
+                mark: true,
+                sub: true,
+                sup: true,
+                align: true,
+                attrs: true,
+                imgLazyload: true,
+                imgSize: true,
+                figure: true,
             },
 
             // 代码复制功能 (默认开启，这是它的配置)
             copyCode: {},
 
-            // 其他插件如 PWA, SEO 等也可以在这里配置
-            // pwa: true,
-            // seo: true,
+            // SEO 优化
+            seo: {
+                autoDescription: true,
+            },
+
+            // PWA 支持
+            pwa: {
+                favicon: "/favicon.ico",
+                cacheHTML: true,
+                appendBase: true,
+                apple: {
+                    icon: "/images/logo.jpg",
+                    statusBarColor: "black",
+                },
+                msTile: {
+                    image: "/images/logo.jpg",
+                    color: "#ffffff",
+                },
+                manifest: {
+                    icons: [
+                        {
+                            src: "/images/logo.jpg",
+                            sizes: "512x512",
+                            purpose: "maskable",
+                            type: "image/jpeg",
+                        },
+                    ],
+                },
+            },
+
+            // 网站地图
+            sitemap: {
+                hostname: 'https://flyoptimistic.github.io/my-vuepress-blog/',
+            },
         },
     }),
 

@@ -1,134 +1,57 @@
 ######################
-#  Project
-#####################
-/node_modules/
-/themes/
-
-**/target/**
-application-dev.properties
-application-prep-local.properties
-
-**/test/**
+#  VuePress 项目
 ######################
-# Eclipse
-######################
-*.pydevproject
-.project
-.metadata
-tmp/
-tmp/**/*
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.classpath
-.settings/
-.loadpath
-.factorypath
-/src/main/resources/rebel.xml
 
-# External tool builders
-.externalToolBuilders/**
+# Node.js 依赖包
+node_modules/
 
-# Locally stored "Eclipse launch configurations"
-*.launch
+# VuePress 2 构建输出和缓存文件
+docs/.vuepress/dist
+docs/.vuepress/.temp
+docs/.vuepress/.cache
 
+# 日志文件
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+*.log
 
-# CDT-specific
-.cproject
+# 环境变量文件
+.env
+.env.local
+.env.*.local
 
-# PDT-specific
-.buildpath
-
-######################
-# Intellij
-######################
+# IDE 和编辑器配置
+.vscode/
 .idea/
 *.iml
 *.iws
 *.ipr
 *.ids
 *.orig
-classes/
-out/
 
-
-######################
-# Visual Studio Code
-######################
-.vscode/
-
-######################
-# Maven
-######################
-/log/
-/target/
-
-######################
-# Gradle
-######################
-.gradle/
-/build/
-
-######################
-# Package Files
-######################
-
-*.war
-*.ear
-*.db
-
-######################
-# Windows
-######################
-# Windows image file caches
+# 操作系统生成的文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-######################
-# Mac OSX
-######################
-.DS_Store
-.svn
-
-# Thumbnails
-._*
-
-
-######################
-# Others
-######################
-*.class
-*.*~
+# 临时文件
+*.tmp
+*.bak
+*.swp
+*~.nib
 *~
-.merge_file*
 
+# 构建和编译输出
+/dist
+/build
+/out
 
-######################
-# 自定义
-######################
-*.log
-docker/**
-/db.json
-
-# Node.js 依赖包
-# node_modules 文件夹包含了所有通过 npm 安装的依赖，体积巨大且可以被重新安装。
-node_modules/
-
-# VuePress 2 编译输出和临时文件
-# 这些文件是运行 npm run docs:dev 或 npm run docs:build 时自动生成的。
-docs/.vuepress/dist
-docs/.vuepress/.temp
-docs/.vuepress/.cache
-
-# 常见的日志文件
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-
-# 本地环境变量文件
-# .env 文件通常包含密码、API 密钥等敏感信息，绝对不能提交。
-.env
-.env.local
-.env.*.local
+# 其他
+.cache/
+coverage/

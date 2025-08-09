@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm outdated)",
+      "Bash(npm audit:*)",
+      "Bash(rm:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm update:*)"
+    ],
+    "deny": []
+  }
+}

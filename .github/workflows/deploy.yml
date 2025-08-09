@@ -1,0 +1,67 @@
+name: Deploy GitHub Pages
+
+# 触发条件：推送到 main 分支时
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - ".gitignore"
+      - "README.md"
+      - "CLAUDE.md"
+  
+  # 支持手动触发
+  workflow_dispatch:
+
+# 设置权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 限制并发部署
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # 构建作业
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码 🛎️
+        uses: actions/checkout@v4
+        with:
+          # 获取完整的 git 历史，用于显示最后更新时间
+          fetch-depth: 0
+
+      - name: 设置 Node.js 💻
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: 安装依赖 🔧
+        run: npm install --legacy-peer-deps
+
+      - name: 构建项目 🏗️
+        run: npm run docs:build
+
+      - name: 上传构建产物 📤
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/.vuepress/dist
+
+  # 部署作业
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: 部署到 GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v4
