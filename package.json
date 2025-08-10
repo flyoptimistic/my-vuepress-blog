@@ -12,8 +12,18 @@
     "type": "git",
     "url": "git+https://github.com/flyoptimistic/my-vuepress-blog.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "VuePress",
+    "blog",
+    "博客",
+    "Java",
+    "高并发",
+    "数据库",
+    "算法",
+    "前端",
+    "后端"
+  ],
+  "author": "北木南",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/flyoptimistic/my-vuepress-blog/issues"
@@ -21,9 +31,9 @@
   "homepage": "https://github.com/flyoptimistic/my-vuepress-blog#readme",
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.9",
-    "vue": "^3.4.27",
+    "sass": "^1.90.0",
+    "vue": "^3.5.13",
     "vuepress": "2.0.0-rc.9",
-    "vuepress-plugin-search-pro": "^2.0.0-rc.33",
     "vuepress-theme-hope": "2.0.0-rc.33"
   }
 }

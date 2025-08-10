@@ -3,11 +3,11 @@ home: true
 layout: BlogHome
 icon: home
 title: 博客主页
-heroImage: /images/logo.jpg
-heroText: 北木南的博客
-tagline: 纸上得来终觉浅，绝知此事要躬行。
+#heroImage: /images/logo.jpg
+#heroText: 北木南的博客
+#tagline: 纸上得来终觉浅，绝知此事要躬行。
 #heroFullScreen: true
-#heroBg: /images/background.jpg
+bgImage: /images/background.jpg
 projects:
   - icon: book
     name: Java 核心

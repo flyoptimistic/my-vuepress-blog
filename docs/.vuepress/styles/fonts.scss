@@ -1,0 +1,91 @@
+/* 字体导入 - 从 Google Fonts 和其他CDN导入优质字体 */
+
+/* 导入 Noto Sans SC - 谷歌开源的高质量中文字体 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+/* 导入 JetBrains Mono - 专业的代码字体 */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+/* 导入 Inter - 现代化的无衬线字体，英文显示效果极佳 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* 备用字体 - 从CDN导入 */
+/* 思源黑体 - Adobe和Google合作的开源字体 */
+@import url('https://fonts.googleapis.com/css2?family=Source+Han+Sans:wght@300;400;500;600;700&display=swap');
+
+/* 更新后的字体栈配置 */
+:root {
+  /* 主字体栈 - 中英文混排优化 */
+  --hope-font-family: "Inter", "Noto Sans SC", "Source Han Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "Segoe UI", system-ui, -apple-system, sans-serif;
+  
+  /* 标题字体栈 */
+  --hope-font-family-heading: "Inter", "Noto Sans SC", "Source Han Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "Segoe UI", system-ui, -apple-system, sans-serif;
+  
+  /* 代码字体栈 */
+  --hope-font-family-code: "JetBrains Mono", "Fira Code", "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", "Consolas", "Liberation Mono", "Courier New", monospace;
+  
+  /* 字体渲染优化 */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+/* 确保字体正确应用到各个元素 */
+html,
+body {
+  font-family: var(--hope-font-family);
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+/* 标题字体应用 */
+h1, h2, h3, h4, h5, h6,
+.page-title,
+.navbar-brand-title {
+  font-family: var(--hope-font-family-heading);
+  font-weight: 600;
+}
+
+/* 代码字体应用 */
+code,
+pre,
+kbd,
+samp,
+.line-numbers-mode {
+  font-family: var(--hope-font-family-code);
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+/* 中文字体特殊优化 */
+html[lang="zh-CN"] {
+  font-family: "Noto Sans SC", "Source Han Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* 英文字体优化 */
+html[lang="en"] {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.011em;
+}
+
+/* 字体加载优化 - 避免字体闪烁 */
+@supports (font-display: swap) {
+  @font-face {
+    font-family: 'Noto Sans SC';
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-display: swap;
+  }
+}

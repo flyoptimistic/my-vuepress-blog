@@ -1,0 +1,45 @@
+// VuePress Theme Hope 变量覆盖
+// 参考: https://theme-hope.vuejs.press/zh/config/style.html
+
+// 字体家族配置
+$font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "Segoe UI", Tahoma, Arial, "Helvetica Neue", sans-serif !default;
+$font-family-heading: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "Segoe UI", Tahoma, Arial, "Helvetica Neue", sans-serif !default;
+$font-family-code: "JetBrains Mono", "Fira Code", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace !default;
+
+// 字体大小
+$font-size: 16px !default;
+$font-size-small: 14px !default;
+$font-size-large: 18px !default;
+
+// 行高
+$line-height: 1.75 !default;
+$line-height-code: 1.5 !default;
+
+// 字重
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-bold: 600 !default;
+
+// 颜色配置
+$text-color: #2c3e50 !default;
+$text-color-light: #34495e !default;
+$text-color-lighter: #7c7c7c !default;
+
+// 代码相关颜色
+$code-bg-color: #f8f8f8 !default;
+$code-color: #e96900 !default;
+$code-border-color: #e5e5e5 !default;
+
+// 引用块颜色
+$blockquote-color: #6a737d !default;
+$blockquote-border-color: #dfe2e5 !default;
+$blockquote-bg-color: #f8f9fa !default;
+
+// 表格颜色
+$table-header-bg: #f6f8fa !default;
+$table-border-color: #d1d5da !default;
+
+// 主题色保持不变，但可以根据需要调整
+$theme-color: #3eaf7c !default;
+$theme-color-light: #4abf8a !default;

@@ -1,0 +1,210 @@
+// 自定义样式，优化字体配置
+:root {
+  // 中文字体栈 - 优先使用优雅的中文字体
+  --font-family-heading: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "Segoe UI", Tahoma, Arial, "Helvetica Neue", sans-serif;
+  --font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "Segoe UI", Tahoma, Arial, "Helvetica Neue", sans-serif;
+  
+  // 代码字体栈 - 等宽字体优化
+  --font-family-code: "JetBrains Mono", "Fira Code", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  
+  // 字体大小优化
+  --font-size: 16px;
+  --font-size-small: 14px;
+  --font-size-large: 18px;
+  
+  // 行高优化 - 提升可读性
+  --line-height: 1.75;
+  --line-height-code: 1.5;
+  
+  // 字重优化
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+}
+
+// 全局字体样式应用
+html {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+// 标题字体优化
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+  color: #2c3e50;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-medium);
+}
+
+// 正文字体优化
+p, li, td, th {
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  color: #34495e;
+}
+
+// 代码字体优化
+code, pre, .line-numbers-mode {
+  font-family: var(--font-family-code) !important;
+  line-height: var(--line-height-code);
+}
+
+// 行内代码优化
+p code, li code {
+  background-color: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  color: #e96900;
+  font-size: 0.875em;
+  font-weight: var(--font-weight-medium);
+  padding: 2px 4px;
+}
+
+// 代码块优化
+pre {
+  background-color: #282c34;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 1.25rem 1.5rem;
+}
+
+pre code {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: inherit;
+  font-size: inherit;
+  padding: 0;
+}
+
+// 引用块字体优化
+blockquote {
+  border-left: 4px solid #dfe2e5;
+  background-color: #f8f9fa;
+  color: #6a737d;
+  font-style: italic;
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+}
+
+blockquote p {
+  color: inherit;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+
+// 表格字体优化
+table {
+  font-size: var(--font-size-small);
+  line-height: 1.5;
+}
+
+table th {
+  background-color: #f6f8fa;
+  border: 1px solid #d1d5da;
+  font-weight: var(--font-weight-medium);
+  padding: 8px 12px;
+}
+
+table td {
+  border: 1px solid #d1d5da;
+  padding: 8px 12px;
+}
+
+// 导航和侧边栏字体优化
+.navbar-item, .sidebar-item {
+  font-size: 15px;
+  font-weight: var(--font-weight-normal);
+}
+
+.navbar-brand-title {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-bold);
+}
+
+// 页面标题优化
+.page-title {
+  font-family: var(--font-family-heading);
+  font-size: 2.25rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.3;
+  margin-bottom: 2rem;
+}
+
+// 文章元信息字体
+.page-meta {
+  color: #7c7c7c;
+  font-size: var(--font-size-small);
+  line-height: 1.4;
+}
+
+// 标签字体
+.tag {
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+}
+
+// 按钮字体优化
+.btn, button {
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+}
+
+// 移动端适配
+@media (max-width: 768px) {
+  :root {
+    --font-size: 15px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.375rem;
+  }
+  
+  .page-title {
+    font-size: 1.875rem;
+  }
+}
+
+// 针对中文字体的额外优化
+.lang-zh {
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+
+// 提升字体渲染质量
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
