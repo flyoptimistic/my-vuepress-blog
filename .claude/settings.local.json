@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run docs:build:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(chmod:*)",
+      "Bash(./migrate.sh:*)",
+      "Bash(npm run docs:dev:*)",
+      "Bash(./batch_migrate.sh:*)",
+      "Bash(find:*)",
+      "Bash(./rename_files.sh)",
+      "Bash(./rename_files_fixed.sh:*)"
+    ],
+    "deny": []
+  }
+}
