@@ -51,6 +51,14 @@ export default defineUserConfig({
 
     // 配置 vuepress-theme-hope 主题
     theme: hopeTheme({
+        // 默认 frontmatter 配置
+        blog: {
+            description: "一个专注于 Java, 高并发, 数据库和各类编程技术的个人博客",
+            intro: "/about.html",
+            medias: {
+                GitHub: "https://github.com/flyoptimistic",
+            },
+        },
         // 基础信息
         hostname: 'https://flyoptimistic.github.io', // GitHub Pages 域名
         author: {

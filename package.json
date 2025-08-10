@@ -6,7 +6,13 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "docs:dev-port": "vuepress dev docs --port 9090"
+    "docs:dev-port": "vuepress dev docs --port 9090",
+    "new-post": "node create-post.js",
+    "upload-images": "node upload-images.js",
+    "process-images": "node image-processor.js",
+    "scan-images": "node image-processor.js scan",
+    "add-image-mapping": "node image-processor.js add",
+    "replace-image-links": "node image-processor.js process"
   },
   "repository": {
     "type": "git",
