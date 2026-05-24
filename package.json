@@ -4,9 +4,9 @@
   "description": "Vuepress 2搭建的个人博客",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "docs:dev-port": "vuepress dev docs --port 9090",
+    "docs:dev": "NO_UPDATE_NOTIFIER=1 PATH=/usr/local/bin:/opt/homebrew/bin:$PATH vuepress dev docs --open",
+    "docs:build": "NO_UPDATE_NOTIFIER=1 PATH=/usr/local/bin:/opt/homebrew/bin:$PATH vuepress build docs",
+    "docs:dev-port": "NO_UPDATE_NOTIFIER=1 PATH=/usr/local/bin:/opt/homebrew/bin:$PATH vuepress dev docs --port 9090 --open",
     "new-post": "node create-post.js",
     "upload-images": "node upload-images.js",
     "process-images": "node image-processor.js",
@@ -34,11 +34,12 @@
   "bugs": {
     "url": "https://github.com/flyoptimistic/my-vuepress-blog/issues"
   },
-  "homepage": "https://github.com/flyoptimistic/my-vuepress-blog#readme",
+  "homepage": "https://flyoptimistic.github.io/my-vuepress-blog/",
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.9",
-    "sass": "^1.90.0",
-    "vue": "^3.5.13",
+    "sass": "^1.91.0",
+    "terser": "^5.43.1",
+    "vue": "^3.5.20",
     "vuepress": "2.0.0-rc.9",
     "vuepress-theme-hope": "2.0.0-rc.33"
   }

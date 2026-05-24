@@ -2,36 +2,63 @@ import { defineUserConfig } from 'vuepress'
 import { viteBundler } from '@vuepress/bundler-vite'
 import { hopeTheme } from 'vuepress-theme-hope'
 
+const siteBase = process.env.DEPLOY_BASE || '/'
+const siteUrl = `https://flyoptimistic.github.io${siteBase === '/' ? '' : siteBase.slice(0, -1)}`
+
 export default defineUserConfig({
     // 基础配置
     bundler: viteBundler({
         viteOptions: {
-            logLevel: 'error',
-            server: {
-                port: 8080,
-                open: true // 自动打开浏览器
+            css: {
+                preprocessorOptions: {
+                    scss: {
+                        quietDeps: true,
+                        silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-functions', 'mixed-decls'],
+                    },
+                    sass: {
+                        quietDeps: true,
+                        silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-functions', 'mixed-decls'],
+                    },
+                },
             },
             build: {
-                minify: 'terser' // 生产环境压缩方式
+                minify: 'terser', // 生产环境压缩方式
+                chunkSizeWarningLimit: 1000,
+                rollupOptions: {
+                    onwarn(warning, warn) {
+                        if (warning.code === 'UNUSED_EXTERNAL_IMPORT') {
+                            return
+                        }
+
+                        warn(warning)
+                    },
+                },
             }
         }
     }),
     lang: 'zh-CN',
     title: '北木南的博客',
-    description: '一个专注于 Java, 高并发, 数据库和各类编程技术的个人博客。',
-    base: '/',
+    description: '一个记录 Java 后端学习、工程实践、技术复盘和个人成长的个人博客。',
+    base: siteBase,
 
     // SEO 和头部标签配置
     head: [
-        ['link', { rel: 'icon', href: '/images/logo.jpg' }],
+        ['link', { rel: 'icon', href: `${siteBase}images/logo.jpg` }],
         ['meta', { name: 'author', content: '北木南' }],
-        ['meta', { name: 'keywords', content: 'Java, 高并发, 数据库, Spring, 算法, 前端, 后端, 博客, 北木南' }],
+        ['meta', { name: 'keywords', content: 'Java, 后端, JVM, 并发编程, 数据库, Spring, 成长记录, 读书笔记, 技术复盘, 北木南' }],
         ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
         ['meta', { name: 'theme-color', content: '#3eaf7c' }],
         ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
         ['meta', { property: 'og:type', content: 'website' }],
         ['meta', { property: 'og:title', content: '北木南的博客' }],
-        ['meta', { property: 'og:description', content: '一个专注于 Java, 高并发, 数据库和各类编程技术的个人博客。' }],
+        ['meta', { property: 'og:description', content: '一个记录 Java 后端学习、工程实践、技术复盘和个人成长的个人博客。' }],
+        ['meta', { property: 'og:image', content: `${siteUrl}/images/logo.jpg` }],
+        ['meta', { property: 'og:url', content: siteUrl }],
+        ['meta', { property: 'og:site_name', content: '北木南的博客' }],
+        ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+        ['meta', { name: 'twitter:image', content: `${siteUrl}/images/logo.jpg` }],
+        ['meta', { 'http-equiv': 'cache-control', content: 'max-age=31536000' }],
+        ['meta', { 'http-equiv': 'expires', content: '31536000' }],
         
         // 字体预加载 - 提升字体加载性能
         ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
@@ -53,77 +80,57 @@ export default defineUserConfig({
     theme: hopeTheme({
         // 默认 frontmatter 配置
         blog: {
-            description: "一个专注于 Java, 高并发, 数据库和各类编程技术的个人博客",
+            description: "记录 Java 后端学习、工程实践、技术复盘和个人成长",
             intro: "/about.html",
             medias: {
                 GitHub: "https://github.com/flyoptimistic",
             },
         },
         // 基础信息
-        hostname: 'https://flyoptimistic.github.io', // GitHub Pages 域名
+        hostname: 'https://flyoptimistic.github.io', // GitHub Pages 根域名，base 会拼接项目路径
         author: {
             name: '北木南',
             url: 'https://github.com/flyoptimistic',
         },
-        logo: '/images/logo.jpg',
+        logo: `${siteBase}images/logo.jpg`,
         repo: 'flyoptimistic/my-vuepress-blog',
 
         // 导航栏
         navbar: [
             { text: '首页', link: '/' },
             {
-                text: 'Java',
+                text: '技术专题',
                 children: [
                     { text: 'Java 基础', link: '/posts/java/base/' },
-                    { text: 'Java 设计模式', link: '/posts/java/base/' },
                     { text: 'JVM', link: '/posts/java/jvm/' },
                     { text: '并发编程', link: '/posts/java/concurrent/' },
                     { text: 'Spring', link: '/posts/java/spring/' },
-                    { text: 'AI', link: '/posts/ai/' },
+                    { text: '数据库', link: '/posts/database/' },
                 ],
             },
             {
-                text: '数据库',
+                text: '成长记录',
                 children: [
-                    { text: '数据库基础', link: '/posts/database/base/' },
-                    { text: 'MySQL', link: '/posts/database/mysql/' },
-                    { text: 'Redis', link: '/posts/database/redis/' },
-                    { text: 'Es', link: '/posts/database/es/' },
-                ],
-            },
-            {
-                text: '系统技术',
-                children: [
-                    { text: '计算机系统', link: '/posts/other/system/' },
-                    { text: 'Linux 系统', link: '/posts/other/linux/' },
-                    { text: '系统架构', link: '/posts/other/' },
-                ],
-            },
-            {
-                text: '开发技术',
-                children: [
-                    { text: '前端技术', link: '/posts/front/' },
-                    { text: '后端技术', link: '/posts/back/' },
+                    { text: '成长周记', link: '/posts/growth/weekly/' },
+                    { text: '阶段复盘', link: '/posts/growth/review/' },
+                    { text: '读书笔记', link: '/posts/reading/' },
                     { text: '开发记录', link: '/posts/development/' },
                 ],
             },
             {
-                text: '算法与数据结构',
+                text: 'AI 工具',
                 children: [
-                    { text: '算法', link: '/posts/algorithm/' }
-                ],
-            },
-            {
-                text: 'AI',
-                children: [
-                    { text: 'AI', link: '/posts/ai/' },
-                    { text: 'GEMINI', link: '/posts/ai/gemini' },
-                    { text: 'CLAUDE', link: '/posts/ai/claude' }
+                    { text: 'AI 实践', link: '/posts/ai/' },
+                    { text: 'Claude', link: '/posts/ai/claude/' },
+                    { text: 'Gemini', link: '/posts/ai/gemini/' },
                 ],
             },
             { text: '友链', link: '/friends.html' },
             { text: '关于', link: '/about.html' },
         ],
+
+        // 结构化侧边栏排序：README 固定在前，其余优先使用 frontmatter order
+        sidebarSorter: ['readme', 'order', 'filename'],
 
         // 优化侧边栏配置 - 按路径精确匹配
         sidebar: {
@@ -151,6 +158,13 @@ export default defineUserConfig({
             '/posts/back/': 'structure',
             '/posts/algorithm/': 'structure',
             '/posts/development/': 'structure',
+            '/posts/growth/weekly/': 'structure',
+            '/posts/growth/review/': 'structure',
+            '/posts/growth/': 'structure',
+            '/posts/reading/': 'structure',
+            '/posts/ai/claude/': 'structure',
+            '/posts/ai/gemini/': 'structure',
+            '/posts/ai/': 'structure',
             
             // 避免显示 posts 层级 - 对于根目录使用空侧边栏
             '/posts/': false,
@@ -168,22 +182,40 @@ export default defineUserConfig({
             // 博客功能
             blog: true,
             
-            // 搜索功能
-            // 注意：使用默认搜索，不使用已过期的searchPro
+            // 基础搜索功能
+            // search: {},
 
-            // Markdown 增强
+            // SEO优化 - 基础配置
+            // sitemap: {
+            //     hostname: 'https://flyoptimistic.github.io'
+            // },
+
+            // Markdown 增强功能
             mdEnhance: {
                 gfm: true,
                 align: true,
                 attrs: true,
-                mark: true,
-                sub: true,
                 sup: true,
+                sub: true,
+                mark: true,
                 tasklist: true,
+                tabs: true,
+                codetabs: true,
             },
 
             // 代码复制功能
             copyCode: {},
+
+            // 阅读时间统计
+            readingTime: {
+                wordPerMinute: 300
+            }
         },
+
+        // 面包屑导航
+        breadcrumb: true,
+        
+        // 页面信息显示
+        pageInfo: ['Author', 'Original', 'Date', 'Category', 'Tag', 'ReadingTime', 'Word'],
     }),
 })

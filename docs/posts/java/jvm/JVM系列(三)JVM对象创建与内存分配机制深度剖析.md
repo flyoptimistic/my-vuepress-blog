@@ -1,5 +1,6 @@
 ---
 title: JVM系列(三)：JVM对象创建与内存分配机制深度剖析
+order: 3
 date: 2024-01-04
 category:
   - Java
@@ -15,7 +16,7 @@ tag:
 
 ## 对象的创建
 
-![对象创建的流程](/images/jvm/object-creation/对象创建的流程.png)
+<!-- ![对象创建的流程](/images/jvm/object-creation/对象创建的流程.png) -->
 
 ### 类加载检查
 
@@ -59,11 +60,11 @@ new 指令对应到语言层面上讲意思是:new关键词,对象克隆,对象�
 
 #### 32位对象头
 
-![32位对象头](/images/jvm/object-creation/32位对象头.png)
+<!-- ![32位对象头](/images/jvm/object-creation/32位对象头.png) -->
 
 #### 64位对象头
 
-![64位对象头](/images/jvm/object-creation/64位对象头.png)
+<!-- ![64位对象头](/images/jvm/object-creation/64位对象头.png) -->
 
 对象头在hotspot的C++源码markOop.hpp文件里的注释如下：
 

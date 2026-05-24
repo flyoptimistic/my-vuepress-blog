@@ -1,5 +1,6 @@
 ---
 title: JVM系列(一)：JVM类加载机制
+order: 1
 date: 2024-01-01
 category:
   - Java
@@ -50,8 +51,8 @@ public class Math {
 }
 ```
 
-![JVM类加载机制](/images/jvm/class-loading/JVM类加载机制.jpg)
+<!-- ![JVM类加载机制](/images/jvm/class-loading/JVM类加载机制.jpg) -->
 
 类从被加载到虚拟机内存中开始，到卸载出内存为止，它的整个生命周期包括：**加载、验证、准备、解析、初始化**、使用和卸载七个阶段。它们的顺序如下图所示：
 
-![类加载生命周期](/images/jvm/class-loading/类加载生命周期.png)
+<!-- ![类加载生命周期](/images/jvm/class-loading/类加载生命周期.png) -->

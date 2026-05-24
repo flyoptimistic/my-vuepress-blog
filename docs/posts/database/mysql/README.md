@@ -15,6 +15,8 @@ category:
 
 ### MySQL 核心技术
 
+- [MySQL 基础入门](./MySQL.md) - MySQL 特点、安装和基础使用
+- [MySQL 数据库事务](./MySQL数据库事务.md) - ACID、隔离级别、MVCC 与事务实践
 - [MySQL锁](./MySQL锁.md) - MySQL锁机制详解：表锁、行锁、意向锁、死锁分析
 
 ## 🎯 核心主题

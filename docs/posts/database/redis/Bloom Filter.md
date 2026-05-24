@@ -22,7 +22,7 @@ tag:
 
 Bloom Filter跟单哈希函数Bit-Map不同之处在于：Bloom Filter使用了k个哈希函数，每个字符串跟k个bit对应。从而降低了冲突的概率。
 
-![过滤器原理](/images/database/bloom-filter/过滤器原理.jpg)
+<!-- ![过滤器原理](/images/database/bloom-filter/过滤器原理.jpg) -->
 
 简单的说一下就是我们先把我们数据库的数据都加载到我们的过滤器中，比如数据库的id现在有：1、2、3
 
@@ -59,13 +59,13 @@ bloom filter之所以能做到在时间和空间上的效率比较高，是因�
 
 根据预估数据量n以及误判率fpp，bit数组大小的m的计算方式：
 
-![bit数组](/images/database/bloom-filter/bit数组.png)
+<!-- ![bit数组](/images/database/bloom-filter/bit数组.png) -->
 
 ### 哈希函数选择
 
 由预估数据量n以及bit数组长度m，可以得到一个hash函数的个数k：
 
-![hash数组](/images/database/bloom-filter/hash数组.png)
+<!-- ![hash数组](/images/database/bloom-filter/hash数组.png) -->
 
 哈希函数的选择对性能的影响应该是很大的，一个好的哈希函数要能近似等概率的将字符串映射到各个Bit。选择k个不同的哈希函数比较麻烦，一种简单的方法是选择一个哈希函数，然后送入k个不同的参数。
 

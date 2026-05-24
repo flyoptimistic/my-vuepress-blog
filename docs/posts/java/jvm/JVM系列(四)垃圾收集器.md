@@ -1,5 +1,6 @@
 ---
 title: JVM系列(四)：垃圾收集器详解
+order: 4
 date: 2024-01-05
 category:
   - Java
@@ -15,7 +16,7 @@ tag:
 
 ## 垃圾收集算法
 
-![垃圾收集算法](/images/jvm/garbage-collector/垃圾收集算法.png)
+<!-- ![垃圾收集算法](/images/jvm/garbage-collector/垃圾收集算法.png) -->
 
 ### 分代收集理论
 
@@ -27,7 +28,7 @@ tag:
 
 为了解决效率问题，"复制"收集算法出现了。它可以将内存分为大小相同的两块，每次使用其中的一块。当这一块的内存使用完后，就将还存活的对象复制到另一块去，然后再把使用的空间一次清理掉。这样就使每次的内存回收都是对内存区间的一半进行回收。
 
-![标记复制算法](/images/jvm/garbage-collector/标记复制算法.jpeg)
+<!-- ![标记复制算法](/images/jvm/garbage-collector/标记复制算法.jpeg) -->
 
 ### 标记-清除算法
 
@@ -36,17 +37,17 @@ tag:
 1. 效率问题(如果需要标记的对象太多,效率不高)
 2. 空间问题(标记清除后产生大量不连续的碎片)
 
-![标记清除法](/images/jvm/garbage-collector/标记清除法.jpeg)
+<!-- ![标记清除法](/images/jvm/garbage-collector/标记清除法.jpeg) -->
 
 ### 标记-整理算法
 
 根据老年代的特点特出的一种标记算法，标记过程仍然与"标记-清除"算法一样，但后续步骤不是直接对可回收对象回收，而是让所有存活的对象向一端移动，然后直接清理掉端边界以外的内存。
 
-![标记整理算法](/images/jvm/garbage-collector/标记整理算法.jpeg)
+<!-- ![标记整理算法](/images/jvm/garbage-collector/标记整理算法.jpeg) -->
 
 ## 垃圾收集器
 
-![垃圾收集器](/images/jvm/garbage-collector/垃圾收集器.png)
+<!-- ![垃圾收集器](/images/jvm/garbage-collector/垃圾收集器.png) -->
 
 **如果说收集算法是内存回收的方法论,那么垃圾收集器就是内存回收的具体实现.**
 
@@ -58,7 +59,7 @@ Serial（串行）收集器是最基本、历史最悠久的垃圾收集器了�
 
 **新生代采用复制算法，老年代采用标记-整理算法。**
 
-![serial收集器](/images/jvm/garbage-collector/serial收集器.jpeg)
+<!-- ![serial收集器](/images/jvm/garbage-collector/serial收集器.jpeg) -->
 
 虚拟机的设计者们当然知道Stop The World带来的不良用户体验，所以在后续的垃圾收集器设计中停顿时间在不断缩短（仍然还有停顿，寻找最优秀的垃圾收集器的过程仍然在继续）。
 

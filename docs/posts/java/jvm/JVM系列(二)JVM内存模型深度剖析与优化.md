@@ -1,5 +1,6 @@
 ---
 title: JVM系列(二)：JVM内存模型深度剖析与优化
+order: 2
 date: 2024-01-02
 category:
   - Java
@@ -14,7 +15,7 @@ tag:
 
 ## JDK体系结构
 
-![JDK体系结构](/images/jvm/memory-model/JDK体系结构.jpg)
+<!-- ![JDK体系结构](/images/jvm/memory-model/JDK体系结构.jpg) -->
 
 ### javap
 
@@ -31,13 +32,13 @@ tag:
 
 ## Java语言的跨平台特性
 
-![Java语言的跨平台特性](/images/jvm/memory-model/Java语言的跨平台特性.png)
+<!-- ![Java语言的跨平台特性](/images/jvm/memory-model/Java语言的跨平台特性.png) -->
 
 ## JVM整体结构及内存模型
 
-![JVM内存模型](/images/jvm/memory-model/JVM内存模型.png)
+<!-- ![JVM内存模型](/images/jvm/memory-model/JVM内存模型.png) -->
 
-![运行时JVM内存区域](/images/jvm/memory-model/运行时JVM内存区域.jpeg)
+<!-- ![运行时JVM内存区域](/images/jvm/memory-model/运行时JVM内存区域.jpeg) -->
 
 ### 内存结构
 
@@ -77,7 +78,7 @@ tag:
 
 线程私有。存储局部变量表、操作栈、动态链接、方法出口，对象指针。
 
-![栈](/images/jvm/memory-model/栈.png)
+<!-- ![栈](/images/jvm/memory-model/栈.png) -->
 
 ##### 概念
 
