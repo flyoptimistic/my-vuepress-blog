@@ -207,13 +207,13 @@ docs/.vuepress/public/images/
 
 ## 发布流程
 
-项目通过 GitHub Actions 部署到 GitHub Pages。推送到 `main` 分支后，`.github/workflows/deploy.yml` 会执行：
+项目当前通过 `gh-pages` 分支部署到 GitHub Pages。源码推送到 `main` 和 `dev`，静态构建产物推送到 `gh-pages` 分支根目录。
 
-1. 安装依赖
-2. 构建 VuePress 静态文件
-3. 通过 `DEPLOY_BASE=/my-vuepress-blog/` 生成项目 Pages 路径
-4. 上传 Pages artifact
-5. 部署到 GitHub Pages
+发布流程：
+
+1. 使用 `DEPLOY_BASE=/my-vuepress-blog/` 构建 VuePress 静态文件。
+2. 将 `docs/.vuepress/dist` 内容推送到 `gh-pages` 分支。
+3. GitHub Pages 从 `gh-pages` 分支根目录发布站点。
 
 线上地址：
 
@@ -224,7 +224,7 @@ https://flyoptimistic.github.io/my-vuepress-blog/
 发布前建议本地执行：
 
 ```bash
-npm run docs:build
+DEPLOY_BASE=/my-vuepress-blog/ npm run docs:build
 npm run scan-images
 ```
 
